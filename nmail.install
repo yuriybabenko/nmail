@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall schema and functions for the nmail module.
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function nmail_schema() {
+  $schema['nmail'] = array(
+	  'description' => t('TODO: please describe this table!'),
+	  'fields' => array(
+	    'nid' => array(
+	      'description' => t('TODO: please describe this field!'),
+	      'type' => 'int',
+	      'unsigned' => TRUE,
+	      'not null' => TRUE,
+	      'default' => 0,
+	    ),
+	    'body' => array(
+	      'description' => t('TODO: please describe this field!'),
+	      'type' => 'text',
+	      'size' => 'big',
+	      'not null' => TRUE,
+	    ),
+	    'last_render' => array(
+	      'description' => t('Unix timestamp of last creation'),
+	      'type' => 'int',
+	      'not null' => TRUE,
+	      'default' => 0,
+	    ),
+	    'history' => array(
+	      'description' => t('Mail queue history'),
+	      'type' => 'text',
+	      'size' => 'big',
+	      'not null' => FALSE,
+	    ),
+	  ),
+	  'primary key' => array('nid'),
+	);
+
+  return $schema;
+}
+
+/**
+ * Implement hook_install().
+ */
+function nmail_install(){
+  drupal_install_schema('nmail');
+}
+
+/**
+ * Implement hook_uninstall().
+ */
+function nmail_uninstall() {
+  drupal_uninstall_schema('nmail');  
+}

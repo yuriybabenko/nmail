@@ -1,0 +1,6 @@
+name = Node Mail
+description = Provides functionality to email nodes as part of newsletters.
+dependencies[] = mimemail
+core = 6.x
+version = "6.x-1.0"
+package = Custom
